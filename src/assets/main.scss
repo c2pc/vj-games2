@@ -1,0 +1,113 @@
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  background-color: #0C0C26;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body, * {
+  margin: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("app-bg.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #0C0C26;
+}
+
+.container {
+  height: 100vh;
+  width: 1448px;
+  gap: 6px;
+  margin: 0 auto;
+  padding: 122px 0 75px;
+  top: 0;
+  -webkit-transform-style: preserve-3d;
+  -webkit-perspective: 1000px;
+}
+
+.title {
+  width: 710.649px;
+  height: 75.648px;
+  background-image: url("title.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.blocks {
+  margin-top: 68px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 65.9px;
+  column-gap: 48.05px;
+}
+
+.blocks .block {
+  width: calc(100% / 2 - 76.13px / 2);
+  height: 167.58px;
+  position: relative;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.blocks .block .bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.blocks .block:nth-child(1) {
+  width: 100%;
+  height: 271.37px;
+}
+
+.blocks .block.selected {
+  transform: scale(95%);
+  transition: .5s;
+}
+
+.blocks .block svg .center {
+  fill: #6D00D7;
+  transition: .5s;
+}
+
+.blocks .block svg .left {
+  fill: #320086;
+  transition: .5s;
+}
+
+.blocks .block svg .top {
+  fill: #51278C;
+  transition: .5s;
+}
+
+.blocks .block.selected svg .center {
+  fill: #320086;
+  transition: .5s;
+}
+
+.blocks .block.selected svg .left {
+  fill: #51278C;
+  transition: .5s;
+}
+
+.blocks .block.selected svg .top {
+  fill: #6D00D7;
+  transition: .5s;
+}
