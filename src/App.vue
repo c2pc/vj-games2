@@ -5,36 +5,54 @@ import Football from "./components/football.vue";
 import Sport from "./components/sport.vue";
 import Stadion from "./components/stadion.vue";
 import Kazan from "./components/kazan.vue";
+import axios from "axios"; // Импорт Axios
+
+
+// Функция для отправки OSC сообщений теперь принимает адрес OSC в качестве параметра
+const sendOscMessage = (address, id) => {
+  axios.post('http://10.30.38.118:3000/send-osc', {
+    address, // Используйте переданный адрес
+    args: [id],
+  })
+      .then(() => console.log(`OSC message sent for address: ${address} with id: ${id}`))
+      .catch(error => console.error('Error sending OSC message:', error));
+};
+
+
 
 const selected = ref(0);
 
-watch(() => selected.value, (id: typeof selected.value) => {
-  switch (id) {
-    case 1: {
-      console.log("Нажата кнопка 1")
-      break;
-    }
-    case 2: {
-      console.log("Нажата кнопка 2")
-      break;
-    }
-    case 3: {
-      console.log("Нажата кнопка 3")
-      break;
-    }
-    case 4: {
-      console.log("Нажата кнопка 4")
-      break;
-    }
-    case 5: {
-      console.log("Нажата кнопка 5")
-      break;
+watch(() => selected.value, (newVal, oldVal) => {
+  if (newVal === 0 && oldVal !== 0) {
+    // Здесь отправляем OSC сообщение при отжатии кнопки
+    sendOscMessage('/composition/columns/1/connect', oldVal); // Используйте соответствующий адрес и предыдущее значение id как аргумент
+    console.log(`Кнопка ${oldVal} отжата`);
+  } else if (newVal !== 0) {
+    // Остальная логика для нажатия кнопок
+    console.log(`Нажата кнопка ${newVal}`);
+    switch (newVal) {
+      case 1:
+        sendOscMessage('/composition/columns/12/connect', 1);
+        break;
+      case 2:
+        sendOscMessage('/composition/columns/13/connect', 1);
+        break;
+      case 3:
+        sendOscMessage('/composition/columns/10/connect', 1);
+        break;
+      case 4:
+        sendOscMessage('/composition/columns/11/connect', 1);
+        break;
+      case 5:
+        sendOscMessage('/composition/columns/14/connect', 1);
+        break;
     }
   }
-})
+});
 
 const onClickContainer = () => {
   selected.value = 0
+  sendOscMessage('/composition/columns/1/connect', 1);
 }
 
 const onClickBlock = (id: number) => {
