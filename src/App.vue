@@ -61,46 +61,48 @@ const onClickBlock = (id: number) => {
 </script>
 
 <template>
-  <div class="container" @click="onClickContainer">
-    <div class="title">
-      <span>Выбери контент</span>
-      <span>Select content</span>
-    </div>
-    <div class="blocks">
-      <div class="block" :class="selected == 1 ? 'selected' : ''" @click.stop="onClickBlock(1)">
-        <div class="text">
-          <span>Казань - город Игр Будущего</span>
-          <span>Kazan - games of the future city</span>
-        </div>
-        <Big class="bg"/>
+  <div @click="onClickContainer">
+    <div class="container">
+      <div class="title">
+        <span>Выбери контент</span>
+        <span>Select content</span>
       </div>
-      <div class="block" :class="selected == 2 ? 'selected' : ''" @click.stop="onClickBlock(2)">
-        <div class="text">
-          <span>Технологии будущего</span>
-          <span>Technologies of the future</span>
+      <div class="blocks">
+        <div class="block" :class="selected == 1 ? 'selected' : ''" @click.stop="onClickBlock(1)">
+          <div class="text">
+            <span>Казань - город Игр Будущего</span>
+            <span>Kazan - games of the future city</span>
+          </div>
+          <Big class="bg"/>
         </div>
-        <Small class="bg"/>
-      </div>
-      <div class="block" :class="selected == 3 ? 'selected' : ''" @click.stop="onClickBlock(3)">
-        <div class="text">
-          <span>Фиджитал-футбол</span>
-          <span>Phygital-football</span>
+        <div class="block" :class="selected == 2 ? 'selected' : ''" @click.stop="onClickBlock(2)">
+          <div class="text">
+            <span>Технологии будущего</span>
+            <span>Technologies of the future</span>
+          </div>
+          <Small class="bg"/>
         </div>
-        <Small class="bg"/>
-      </div>
-      <div class="block" :class="selected == 4 ? 'selected' : ''" @click.stop="onClickBlock(4)">
-        <div class="text">
-          <span>Фиджитал-спорт</span>
-          <span>Phygital-sport</span>
+        <div class="block" :class="selected == 3 ? 'selected' : ''" @click.stop="onClickBlock(3)">
+          <div class="text">
+            <span>Фиджитал-футбол</span>
+            <span>Phygital-football</span>
+          </div>
+          <Small class="bg"/>
         </div>
-        <Small class="bg"/>
-      </div>
-      <div class="block" :class="selected == 5 ? 'selected' : ''" @click.stop="onClickBlock(5)">
-        <div class="text">
-          <span>Стадион будущего</span>
-          <span>StadiUm of the future</span>
+        <div class="block" :class="selected == 4 ? 'selected' : ''" @click.stop="onClickBlock(4)">
+          <div class="text">
+            <span>Фиджитал-спорт</span>
+            <span>Phygital-sport</span>
+          </div>
+          <Small class="bg"/>
         </div>
-        <Small class="bg"/>
+        <div class="block" :class="selected == 5 ? 'selected' : ''" @click.stop="onClickBlock(5)">
+          <div class="text">
+            <span>Стадион будущего</span>
+            <span>StadiUm of the future</span>
+          </div>
+          <Small class="bg"/>
+        </div>
       </div>
     </div>
   </div>
