@@ -1,3 +1,14 @@
+@font-face {
+  font-family: "PHGTL";
+  src:
+          url("fonts/PHGTL.woff2") format("woff2"),
+          url("fonts/PHGTL.eot") format("eot"),
+          url("fonts/PHGTL.otf") format("otf"),
+          url("fonts/PHGTL.ttf") format("ttf"),
+  url("fonts/PHGTL.woff") format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 html {
   line-height: 1.15;
@@ -24,6 +35,7 @@ body {
   background-image: url("app-bg.svg");
   background-repeat: no-repeat;
   background-position: center center;
+  background-size: cover;
   background-color: #0C0C26;
 }
 
@@ -32,23 +44,32 @@ body {
   width: 1448px;
   gap: 6px;
   margin: 0 auto;
-  padding: 122px 0 75px;
+  padding: 38px 0;
   top: 0;
   -webkit-transform-style: preserve-3d;
   -webkit-perspective: 1000px;
 }
 
 .title {
-  width: 710.649px;
-  height: 75.648px;
-  background-image: url("title.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
+  width: 100%;
+  color: #FFF;
+
+  text-shadow: 7px 7px 10px rgba(0, 0, 0, 0.25);
+  font-family: PHGTL;
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -4.8px;
+  text-wrap: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .blocks {
-  margin-top: 68px;
+  margin-top: 28px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -63,6 +84,30 @@ body {
   cursor: pointer;
   transition: .5s;
 }
+.blocks .text {
+  color: #FFF;
+  text-shadow: 7px 7px 10px rgba(0, 0, 0, 0.25);
+  font-family: PHGTL;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-wrap: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 21.578px 0 0 28.082px;
+  row-gap: 10px;
+}
+
+.blocks .block:nth-child(1) .text {
+  font-size: 45px;
+  padding: 34.941px 0 0 45.475px;
+}
 
 .blocks .block .bg {
   width: 100%;
@@ -70,6 +115,7 @@ body {
   position: absolute;
   left: 0;
   top: 0;
+  z-index: -10;
 }
 
 .blocks .block:nth-child(1) {

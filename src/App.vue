@@ -1,11 +1,8 @@
 <script setup lang="ts">
 import {ref, watch} from "vue";
-import Technology from "./components/technology.vue";
-import Football from "./components/football.vue";
-import Sport from "./components/sport.vue";
-import Stadion from "./components/stadion.vue";
-import Kazan from "./components/kazan.vue";
-import axios from "axios"; // Импорт Axios
+import axios from "axios";
+import Big from "@/components/big.vue";
+import Small from "@/components/small.vue"; // Импорт Axios
 
 
 // Функция для отправки OSC сообщений теперь принимает адрес OSC в качестве параметра
@@ -17,7 +14,6 @@ const sendOscMessage = (address, id) => {
       .then(() => console.log(`OSC message sent for address: ${address} with id: ${id}`))
       .catch(error => console.error('Error sending OSC message:', error));
 };
-
 
 
 const selected = ref(0);
@@ -66,22 +62,45 @@ const onClickBlock = (id: number) => {
 
 <template>
   <div class="container" @click="onClickContainer">
-    <div class="title"></div>
+    <div class="title">
+      <span>Выбери контент</span>
+      <span>Select content</span>
+    </div>
     <div class="blocks">
       <div class="block" :class="selected == 1 ? 'selected' : ''" @click.stop="onClickBlock(1)">
-        <Kazan class="bg"/>
+        <div class="text">
+          <span>Казань - город Игр Будущего</span>
+          <span>Kazan - games of the future city</span>
+        </div>
+        <Big class="bg"/>
       </div>
       <div class="block" :class="selected == 2 ? 'selected' : ''" @click.stop="onClickBlock(2)">
-        <Technology class="bg"/>
+        <div class="text">
+          <span>Технологии будущего</span>
+          <span>Technologies of the future</span>
+        </div>
+        <Small class="bg"/>
       </div>
       <div class="block" :class="selected == 3 ? 'selected' : ''" @click.stop="onClickBlock(3)">
-        <Football class="bg"/>
+        <div class="text">
+          <span>Фиджитал-футбол</span>
+          <span>Phygital-football</span>
+        </div>
+        <Small class="bg"/>
       </div>
       <div class="block" :class="selected == 4 ? 'selected' : ''" @click.stop="onClickBlock(4)">
-        <Sport class="bg"/>
+        <div class="text">
+          <span>Фиджитал-спорт</span>
+          <span>Phygital-sport</span>
+        </div>
+        <Small class="bg"/>
       </div>
       <div class="block" :class="selected == 5 ? 'selected' : ''" @click.stop="onClickBlock(5)">
-        <Stadion class="bg"/>
+        <div class="text">
+          <span>Стадион будущего</span>
+          <span>StadiUm of the future</span>
+        </div>
+        <Small class="bg"/>
       </div>
     </div>
   </div>
