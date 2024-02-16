@@ -32,7 +32,7 @@ watch(() => selected.value, (newVal, oldVal) => {
     console.log(`Нажата кнопка ${newVal}`);
     switch (newVal) {
       case 1:
-        sendOscMessage('/composition/columns/121/connect', 1);
+        sendOscMessage('/composition/columns/12/connect', 1);
         break;
       case 2:
         sendOscMessage('/composition/columns/13/connect', 1);
