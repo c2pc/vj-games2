@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import {ref, watch} from "vue";
 import axios from "axios";
-import Big from "@/components/big.vue";
-import Small from "@/components/small.vue"; // Импорт Axios
+import Big from "./components/big.vue";
+import Small from "./components/small.vue"; // Импорт Axios
 
 
 // Функция для отправки OSC сообщений теперь принимает адрес OSC в качестве параметра
-const sendOscMessage = (address, id) => {
+const sendOscMessage = (address:string, id:number) => {
   axios.post('http://10.30.38.118:3000/send-osc', {
     address, // Используйте переданный адрес
     args: [id],
